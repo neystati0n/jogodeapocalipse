@@ -1,0 +1,95 @@
+programa
+{
+	inclua biblioteca Util --> u //adicionando uma biblioteca
+	
+	funcao inicio()
+	{
+
+		cadeia player
+		inteiro faccao
+		inteiro energia, ataque, turno
+		inteiro evento
+		inteiro dificuldade
+
+		energia = 100
+
+		escreva("''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''\n")
+		escreva("'                       inicie o jogo                                           '\n")
+		escreva("''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''\n")
+
+		escreva("\ncrie um username: ")
+		leia(player)
+
+		escreva ("\nEscolha uma dificuldade: \n 1- zona segura (Fácil: 90 pontos de energia no começo) \n 2- sobrevivente (médio: 65 pontos de energia ) \n 3- brutal (difícil: 40 pontos de energia) \n 4- sem esperança (muito difícil: 30 pontos de energia) \n\n -->")
+		leia (dificuldade)
+
+		escolha(dificuldade){
+
+			caso 1:
+				escreva("Dificuldade escolhida: zona segura")
+				escreva("boa sorte\n\n\n")
+			pare
+
+			caso 2:
+				escreva("Dificuldade escolhida: sobrevivente")
+				escreva("boa sorte\n\n\n")
+			pare
+			caso 3:
+				escreva("Dificuldade escolhida: brutal\n")
+				escreva("boa sorte\n\n\n")
+			pare
+			caso 4:
+				escreva("Dificuldade escolhida: sem esperança \n")
+				escreva("boa sorte")
+			caso contrario:
+				escreva ("Escolha uma dificuldade válida: \n")
+			pare
+
+			
+		}// fim do escolha
+			
+				
+		
+	
+
+		faca {
+
+
+			escreva ("\nfacções disponíveis: \n")
+		
+			escreva ("\n1- militares \n VANTAGENS: eventos perigosos causam menos dano. Evento: -10 energia (em vez de -20)\n DESVANTAGENS: descançar é menos eficiente. Descansar: -8 (em vez de -5)\n")
+		
+			escreva ("\n2- médicos \n VANTAGENS: Ao procurar suprimentos, recuperam mais energia. Procurar suprimentos: +15 energia (em vez de +10)\n DESVANTAGENS: Começam a missão com menos energia. Energia inicial reduzida em 10 pontos\n")
+		
+			escreva ("\n3- saqueadores \n VANTAGENS: Ao procurar suprimentos existe 40% de chance de encontrar recursos extras, recuperando +10 de energia adicional. \n DESVANTAGENS: Eventos perigosos causam mais dano. Evento: -25 energia\n")
+		
+			escreva ("\nESCOLHA A SUA FACÇÃO: ")
+			leia (faccao)
+		
+			se(faccao < 1 e faccao > 3){
+
+				escreva ("\nEscolha uma facção que esteja disponível ")
+				
+			}//fim do se		
+				
+
+			
+		}enquanto (faccao < 1 e faccao > 3)
+
+		escreva ("Facção escolhida com sucesso: ")
+				
+		
+		
+	}
+}
+/* $$$ Portugol Studio $$$ 
+ * 
+ * Esta seção do arquivo guarda informações do Portugol Studio.
+ * Você pode apagá-la se estiver utilizando outro editor.
+ * 
+ * @POSICAO-CURSOR = 819; 
+ * @PONTOS-DE-PARADA = ;
+ * @SIMBOLOS-INSPECIONADOS = ;
+ * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
+ * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
+ */
