@@ -7,11 +7,19 @@ programa
 
 		cadeia player
 		inteiro faccao
-		inteiro energia, ataque, turno
-		inteiro evento
+		inteiro energia, ataque, DanoDeAtaque, recuperacao, dano, descanco
+		inteiro evento, opcao
 		inteiro dificuldade
+		
 
-		energia = 100
+		//status padrão (muda conforme a classe)
+		energia = 90
+		dano = 20
+		recuperacao = 20
+		DanoDeAtaque = 10
+		descanco = 5
+		
+		
 
 
 
@@ -131,19 +139,23 @@ escreva("\n                                                                     
 		escolha(dificuldade){
 
 			caso 1:
+				energia = 90
 				escreva("Dificuldade escolhida: zona segura")
 				escreva("boa sorte\n\n\n")
 			pare
 
 			caso 2:
+				energia = 65
 				escreva("Dificuldade escolhida: sobrevivente")
 				escreva("boa sorte\n\n\n")
 			pare
 			caso 3:
+				energia = 40
 				escreva("Dificuldade escolhida: brutal\n")
 				escreva("boa sorte\n\n\n")
 			pare
 			caso 4:
+				energia = 30
 				escreva("Dificuldade escolhida: sem esperança \n")
 				escreva("boa sorte")
 			caso contrario:
@@ -152,11 +164,13 @@ escreva("\n                                                                     
 
 			
 		}// fim do escolha
-			
-				
+
+
+		
 		
 	
-
+		//ESCOLHENDO AS FACÇÕES
+		
 		faca {
 
 
@@ -170,30 +184,96 @@ escreva("\n                                                                     
 		
 			escreva ("\nESCOLHA A SUA FACÇÃO: ")
 			leia (faccao)
+
+			se(faccao == 1){
+
+				dano =  10
+				descanco =  8
 		
-			se(faccao < 1 e faccao > 3){
+		
+			
+				}//fim do se
+
+			senao se(faccao == 2){
+
+			recuperacao =  15
+			energia = energia - 10
+
+			
+				}//fim do senao se
+
+			senao se(faccao == 3){
+
+
+				dano = 25
+				
+			}//fim do senao se
+
+
+			
+		
+			senao{
 
 				escreva ("\nEscolha uma facção que esteja disponível ")
 				
 			}//fim do se		
-				
+			
+	//ESCOLHENDO AS FACOÇÕES
+		
 
 			
-		}enquanto (faccao < 1 e faccao > 3)
+		}enquanto (faccao < 1 ou faccao > 3)
 
 		escreva ("Facção escolhida com sucesso: ")
-				
 
-
+		
+	
+		
+//PRIMEIRO TURNO
 		escreva ("\n\n\nPrimeiro turno")
 
-		u.aguarde(3000)//intervalo de 5 segundos entre as menssagens
+		u.aguarde(1500)//intervalo de 5 segundos entre as menssagens
 
-		escreva ("\n\n\nVocê sai da sua base, e sabe que tem uma missão. Ir para a aurora")
+		escreva ("\n\n\nVocê sai da sua base, e sabe que tem uma missão... Ir para a aurora, a última base humana")
 
 		u.aguarde(3000)// intervalo de 5 segundos entre as menssagens
 
-		escreva ("\n\n\nO que você irá fazer?")
+		escreva ("\n\n\nO que você irá fazer?\n\n\n")
+
+
+
+
+
+
+		
+//SEGUNDO TURNO
+		escreva ("Segundo turno")
+
+		escreva ("\n\n\nO que você irá fazer?\n\n\n")
+
+		evento = u.sorteia(1, 3)
+
+		faca{
+
+			
+		escreva("1- explorar a cidade\n")
+		escreva("2- descansar em um abrigo\n")
+		escreva ("3- procurar suprimentos\n")
+		escreva(":")
+		leia(opcao)
+
+
+		
+			
+		}enquanto (opcao < 1 e opcao > 3)
+		escreva ("Escolhar uma opção correta")
+
+		
+		
+		
+		
+		
+		
 
 		
 		
@@ -204,7 +284,7 @@ escreva("\n                                                                     
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 12104; 
+ * @POSICAO-CURSOR = 15255; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
