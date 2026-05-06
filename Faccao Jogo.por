@@ -8,19 +8,18 @@ programa
 		cadeia player
 		inteiro faccao
 		inteiro energia, ataque, DanoDeAtaque, recuperacao, dano, descanco
-		inteiro evento, opcao
+		inteiro evento, opcaoC1, opcaoC2, opcaoC3, opcaoC4, opcaoC5, opcaoC6, opcaoC7, opcaoC8, opcaoC9, opcaoC10
 		inteiro dificuldade
 		
 
 		//status padrão (muda conforme a classe)
-		energia = 90
-		dano = 20
-		recuperacao = 20
+		
+		dano = 20//perde energia
+		recuperacao = 20//ganha energia
 		DanoDeAtaque = 10
-		descanco = 5
-		
-		
+		descanco = 5//perde energia
 
+		evento = u.sorteia(1, 100)
 
 
 
@@ -133,7 +132,7 @@ escreva("\n                                                                     
 		escreva("\ncrie um username: ")
 		leia(player)
 
-		escreva ("\nEscolha uma dificuldade: \n 1- zona segura (Fácil: 90 pontos de energia no começo) \n 2- sobrevivente (médio: 65 pontos de energia ) \n 3- brutal (difícil: 40 pontos de energia) \n 4- sem esperança (muito difícil: 30 pontos de energia) \n\n -->")
+		escreva ("\nEscolha uma dificuldade: \n 1- zona segura (Fácil: 90 pontos de energia no começo, e 10% de chance de evento) \n 2- sobrevivente (médio: 65 pontos de energia e 20% de chance de evento ) \n 3- brutal (difícil: 40 pontos de energia e 30% de chance de evento) \n 4- sem esperança (muito difícil: 30 pontos de energia e 40% de chance de evento) \n\n -->")
 		leia (dificuldade)
 
 		escolha(dificuldade){
@@ -206,6 +205,7 @@ escreva("\n                                                                     
 
 
 				dano = 25
+				 //ela vai ter 40% de chancer de encontrar recursos extras, recuperando +10 de energia
 				
 			}//fim do senao se
 
@@ -226,32 +226,64 @@ escreva("\n                                                                     
 
 		escreva ("Facção escolhida com sucesso: ")
 
+
+	//CASO MORRER/////
+	se(energia == 0){
+
+		escreva ("fim de jogo: ")
+
+		
+	}//fim do se
+
 		
 	
 		
-//PRIMEIRO TURNO
-		escreva ("\n\n\nPrimeiro turno")
+//PRIMEIRO TURNO////////////////////////////////////////////////////////////////////////////////////
+		escreva("\nseja bem vindo, " , player, " , você está em 2120 um ano marcador por uma substancia radioativa \n que marcou o fim da metade da humanidade.\n")
+		escreva("\nvocê está em uma base que não está muito segura, por sua sorte tem uma  \nbase á 900 kilometros, então prepare as coisas e vamos a estrada ")
+		escreva("\n meu nome Ronaldo Kleberson , sou um programa que rastreia pessoas que apresentam sinais de vida pelas redondezas\n")
+		escreva("tem alguma duvida (se sim digite 1 ,se não digite 2) \n\n")
+		//parte da IA sobre se ela quer que o player responda suas duvida (Depois eu faço)
 
-		u.aguarde(1500)//intervalo de 5 segundos entre as menssagens
-
-		escreva ("\n\n\nVocê sai da sua base, e sabe que tem uma missão... Ir para a aurora, a última base humana")
-
-		u.aguarde(3000)// intervalo de 5 segundos entre as menssagens
-
-		escreva ("\n\n\nO que você irá fazer?\n\n\n")
-
+		
+		faca{
 
 
+			escreva ("Você sai da sua base em rumo a aurora. O que deseja fazer?\n\n\n")
+
+		escreva("1- explorar a cidade\n")
+		escreva("2- descansar em um abrigo\n")
+		escreva ("3- procurar suprimentos\n")
+		escreva("4- inventário\n")
+		escreva(":")
+		leia(opcaoC1)
+
+		se(opcaoC1 == 1  ){
+
+			
+
+			
+		}//fim do se
+		
+
+			
+		
+			
+		}enquanto (opcaoC1 < 1 e opcaoC1 > 4)
+//PRIMEIRO TURNO////////////////////////////////////////////////////////////////////////////////////
 
 
 
 		
-//SEGUNDO TURNO
-		escreva ("Segundo turno")
+//SEGUNDO TURNO////////////////////////////////////////////////////////////////////////////////////
+
+		escreva ("\n==========================\n")
+		escreva ("[   Segundo capítulo     ]")
+		escreva ("\n==========================\n")
 
 		escreva ("\n\n\nO que você irá fazer?\n\n\n")
 
-		evento = u.sorteia(1, 3)
+		
 
 		faca{
 
@@ -259,15 +291,16 @@ escreva("\n                                                                     
 		escreva("1- explorar a cidade\n")
 		escreva("2- descansar em um abrigo\n")
 		escreva ("3- procurar suprimentos\n")
+		escreva("4- inventário\n")
 		escreva(":")
-		leia(opcao)
+		leia(opcaoC2)
 
 
 		
 			
-		}enquanto (opcao < 1 e opcao > 3)
+		}enquanto (opcaoC2 < 1 e opcaoC2 > 4)
 		escreva ("Escolhar uma opção correta")
-
+//SEGUNDO TURNO////////////////////////////////////////////////////////////////////////////////////
 		
 		
 		
@@ -284,7 +317,7 @@ escreva("\n                                                                     
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 15255; 
+ * @POSICAO-CURSOR = 14976; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
