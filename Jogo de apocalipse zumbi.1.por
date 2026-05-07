@@ -6,10 +6,11 @@ programa
 	{
 
 		cadeia player
-		inteiro faccao
+		inteiro faccao, arma, ataduras, itensdecriacao
 		inteiro energia, ataque, DanoDeAtaque, recuperacao, dano, descanco
-		inteiro evento, qualevento , opcaoC1, opcaoC2, opcaoC3, opcaoC4, opcaoC5, opcaoC6, opcaoC7, opcaoC8, opcaoC9, opcaoC10
+		inteiro evento, qualquerevento , opcaoC1, opcaoC2, opcaoC3, opcaoC4, opcaoC5, opcaoC6, opcaoC7, opcaoC8, opcaoC9, opcaoC10, opcaoacao
 		inteiro dificuldade
+		
 		
 
 		//status padrão (muda conforme a classe)
@@ -20,11 +21,11 @@ programa
 		descanco = 5//perde energia
 		energia = 100
 
-		qualevento = u.sorteia(1, 5)
-		
+		qualquerevento = u.sorteia(1, 5)
+		 
 		evento = sorteia(1, 100)
 
-
+		arma = u.sorteia(1, 100)
 
 escreva("\n:::::--------------======------------------------:::----------:::::::---------------===+++++++++++++*********+++=======-")
 escreva("\n:::::.::--:::::----------===--=-------=====--::::::::::---------::::::::::::------===++++++*************+++++++===------")
@@ -143,22 +144,26 @@ escreva("\n                                                                     
 		escolha(dificuldade){
 
 			caso 1:
+				
 				energia = 90
 				escreva("Dificuldade escolhida: zona segura")
 				escreva("boa sorte\n\n\n")
 			pare
 
 			caso 2:
+			
 				energia = 65
 				escreva("Dificuldade escolhida: sobrevivente")
 				escreva("boa sorte\n\n\n")
 			pare
 			caso 3:
+				
 				energia = 40
 				escreva("Dificuldade escolhida: brutal\n")
 				escreva("boa sorte\n\n\n")
 			pare
 			caso 4:
+				
 				energia = 40
 				escreva("Dificuldade escolhida: sem esperança \n")
 				escreva("boa sorte")
@@ -272,6 +277,8 @@ escreva("\n                                                                     
 		escreva(":")
 		leia(opcaoC1)
 
+
+/////////////////-------------------------ESCOLHA DAS OPÇÕES-----------------------\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 			escolha(opcaoC1){
 				caso 1:
 			///DE ACORDO COM A DIFICULDADE A CHANCE DE EVENTO E ENCONTRO DE ITENS MUDA///
@@ -279,8 +286,91 @@ escreva("\n                                                                     
 ///////DIFICULDADE FÁCIL//////////////////////////////////
 					se(dificuldade == 1 e faccao == 1){
 		//militar//
-						se (evento <= 10){
-							escreva ("VOCÊ ENCONTROU UM ZUMBI!! ")
+						se ( evento <= 10){
+
+							qualquerevento = u.sorteia(1, 3)
+				//escolha caso para fazer as ações//
+								escolha(qualquerevento){
+
+								//zumbi comum\\
+									caso 1:
+										escreva ("VOCÊ ENCONTROU UM ZUMBI!!  \n\n")
+										escreva ("o que você vai fazer?\n\n")
+										escreva ("1- atacar \n")
+										escreva ("2- fugir \n")
+										leia(opcaoacao)
+
+										se(opcaoacao == 1 ){
+										
+											escreva ("você não possui nenuma arma e acaba saindo ferido")
+
+											u.aguarde(2000)
+											energia = energia - 10
+											
+											
+										}//fim do se no escolha
+										senao {
+
+											escreva ("Você foge e consegue escapar")
+
+											u.aguarde(2000)
+										}// fim do senao
+									pare
+								//zumbi corredor\\
+									caso 2:
+										escreva ("VOCÊ ENCONTROU UM ZUMBI CORREDOR VINDO EM SUA DIREÇÃO!!!\n\n")
+										escreva ("o que você vai fazer?\n\n")
+										escreva ("1- atacar \n")
+										escreva ("2- fugir \n")
+										leia(opcaoacao)
+
+										se(opcaoacao == 1 ){
+										
+											escreva ("você não possui nenuma arma e acaba saindo ferido")
+
+											u.aguarde(2000)
+											energia = energia - 10
+											
+											
+										}//fim do se no escolha
+										senao {
+
+											escreva ("Ele te agarra por um momento e te machuca, porém você ainda consegue escapar")
+
+											u.aguarde(2500)
+											energia = energia - 10
+											
+										}// fim do senao
+									pare
+									//horda de zumbis
+									caso 3:
+										escreva ("VOCÊ ENCONTROU UMA HORDA ZUMBIS  VINDO EM SUA DIREÇÃO!!!\n\n")
+										escreva ("o que você vai fazer?\n\n")
+										escreva ("1- atacar \n")
+										escreva ("2- fugir \n")
+										leia(opcaoacao)
+
+										se(opcaoacao == 1 ){
+										
+											escreva ("você não possui nenuma arma e acaba saindo ferido")
+
+											u.aguarde(2000)
+											energia = energia - energia
+											
+											
+										}//fim do se no escolha
+										senao {
+
+											escreva ("Você foge e consegue escapar")
+
+											u.aguarde(1500)
+											energia = energia - 10
+											
+										}// fim do senao
+									pare
+									//horda de zumbis
+								}//fim do escolha
+							
 				
 							energia = energia - 10
 						}//fim do OUTRO se
@@ -295,7 +385,84 @@ escreva("\n                                                                     
 					se(dificuldade == 1 e faccao == 2){
 		//médico//
 						se (evento <= 10){
-							escreva ("VOCÊ ENCONTROU UM ZUMBI!! ")
+
+							qualquerevento = u.sorteia(1, 3)
+				//escolha caso para fazer as ações//
+								escolha(qualquerevento){
+
+								//zumbi comum\\
+									caso 1:
+										escreva ("VOCÊ ENCONTROU UM ZUMBI!!  \n\n")
+										escreva ("o que você vai fazer?\n\n")
+										escreva ("1- atacar \n")
+										escreva ("2- fugir \n")
+										leia(opcaoacao)
+
+										se(opcaoacao == 1 ){
+										
+											escreva ("você não possui nenuma arma e acaba saindo ferido")
+											u.aguarde(2000)
+											energia = energia - 10
+											
+											
+										}//fim do se no escolha
+										senao {
+
+											escreva ("Você foge e consegue escapar")
+											u.aguarde(1500)
+										}// fim do senao
+									pare
+								//zumbi corredor\\
+									caso 2:
+										escreva ("VOCÊ ENCONTROU UM ZUMBI CORREDOR VINDO EM SUA DIREÇÃO!!!\n\n")
+										escreva ("o que você vai fazer?\n\n")
+										escreva ("1- atacar \n")
+										escreva ("2- fugir \n")
+										leia(opcaoacao)
+
+										se(opcaoacao == 1 ){
+										
+											escreva ("você não possui nenuma arma e acaba saindo ferido")
+											u.aguarde(2000)
+											energia = energia - 10
+											
+											
+										}//fim do se no escolha
+										senao {
+
+											escreva ("Ele te agarra por um momento e te machuca, porém você ainda consegue escapar")
+											u.aguarde(2500)
+											energia = energia - 10
+											
+										}// fim do senao
+									pare
+									//horda de zumbis
+									caso 3:
+										escreva ("VOCÊ ENCONTROU UMA HORDA ZUMBIS  VINDO EM SUA DIREÇÃO!!!\n\n")
+										escreva ("o que você vai fazer?\n\n")
+										escreva ("1- atacar \n")
+										escreva ("2- fugir \n")
+										leia(opcaoacao)
+
+										se(opcaoacao == 1 ){
+										
+											escreva ("você não possui nenuma arma e acaba saindo ferido")
+											u.aguarde(2000)
+											energia = energia - energia
+											
+											
+										}//fim do se no escolha
+										senao {
+
+											escreva ("Você foge e consegue escapar")
+											u.aguarde(1500)
+											energia = energia - 10
+											
+										}// fim do senao
+									pare
+									//horda de zumbis
+								}//fim do escolha
+							
 				
 							energia = energia - 20
 						}//fim do OUTRO se
@@ -310,7 +477,85 @@ escreva("\n                                                                     
 					se(dificuldade == 1 e faccao == 3){
 		//saqueador//
 						se (evento <= 10){
-							escreva ("VOCÊ ENCONTROU UM ZUMBI!! ")
+
+							qualquerevento = u.sorteia(1, 3)
+				//escolha caso para fazer as ações//
+								escolha(qualquerevento){
+
+								//zumbi comum\\
+									caso 1:
+										escreva ("VOCÊ ENCONTROU UM ZUMBI!!  \n\n")
+										escreva ("o que você vai fazer?\n\n")
+										escreva ("1- atacar \n")
+										escreva ("2- fugir \n")
+										leia(opcaoacao)
+
+										se(opcaoacao == 1 ){
+										
+											escreva ("você não possui nenuma arma e acaba saindo ferido")
+											u.aguarde(2000)
+											energia = energia - 10
+											
+											
+										}//fim do se no escolha
+										senao {
+
+											escreva ("Você foge e consegue escapar")
+											u.aguarde(2000)
+										}// fim do senao
+									pare
+								//zumbi corredor\\
+									caso 2:
+										escreva ("VOCÊ ENCONTROU UM ZUMBI CORREDOR VINDO EM SUA DIREÇÃO!!!\n\n")
+										escreva ("o que você vai fazer?\n\n")
+										escreva ("1- atacar \n")
+										escreva ("2- fugir \n")
+										leia(opcaoacao)
+
+										se(opcaoacao == 1 ){
+										
+											escreva ("você não possui nenuma arma e acaba saindo ferido")
+											u.aguarde(2000)
+											energia = energia - 10
+											
+											
+										}//fim do se no escolha
+										senao {
+
+											escreva ("Ele te agarra por um momento e te machuca, porém você ainda consegue escapar")
+											u.aguarde(2500)
+											energia = energia - 10
+											
+										}// fim do senao
+									pare
+									//horda de zumbis
+									caso 3:
+										escreva ("VOCÊ ENCONTROU UMA HORDA ZUMBIS  VINDO EM SUA DIREÇÃO!!!\n\n")
+										escreva ("o que você vai fazer?\n\n")
+										escreva ("1- atacar \n")
+										escreva ("2- fugir \n")
+										leia(opcaoacao)
+
+										se(opcaoacao == 1 ){
+										
+											escreva ("você não possui nenuma arma e acaba saindo ferido")
+											u.aguarde(2000)
+											energia = energia - energia
+											
+											
+										}//fim do se no escolha
+										senao {
+
+											escreva ("Você foge e consegue escapar")
+											u.aguarde(2000)
+											energia = energia - 10
+											
+										}// fim do senao
+									pare
+									//horda de zumbis
+								}//fim do escolha
+
+						
 				
 							energia = energia - 25
 						}//fim do OUTRO se
@@ -327,7 +572,93 @@ escreva("\n                                                                     
 					se(dificuldade == 2 e faccao == 1){
 		//militar//
 						se (evento <= 20){
-							escreva ("VOCÊ ENCONTROU UM ZUMBI!! ")
+
+							
+
+							qualquerevento = u.sorteia(1, 3)
+				//escolha caso para fazer as ações//
+								escolha(qualquerevento){
+
+								//zumbi comum\\
+									caso 1:
+										escreva ("VOCÊ ENCONTROU UM ZUMBI!!  \n\n")
+										escreva ("o que você vai fazer?\n\n")
+										escreva ("1- atacar \n")
+										escreva ("2- fugir \n")
+										leia(opcaoacao)
+
+										se(opcaoacao == 1 ){
+										
+											escreva ("você não possui nenuma arma e acaba saindo ferido")
+
+											u.aguarde(2000)
+											energia = energia - 10
+											
+											
+										}//fim do se no escolha
+										senao {
+
+											escreva ("Você foge e consegue escapar")
+
+											u.aguarde(2000)
+										}// fim do senao
+									pare
+								//zumbi corredor\\
+									caso 2:
+										escreva ("VOCÊ ENCONTROU UM ZUMBI CORREDOR VINDO EM SUA DIREÇÃO!!!\n\n")
+										escreva ("o que você vai fazer?\n\n")
+										escreva ("1- atacar \n")
+										escreva ("2- fugir \n")
+										leia(opcaoacao)
+
+										se(opcaoacao == 1 ){
+										
+											escreva ("você não possui nenuma arma e acaba saindo ferido")
+
+											u.aguarde(2000)
+											energia = energia - 10
+											
+											
+										}//fim do se no escolha
+										senao {
+
+											escreva ("Ele te agarra por um momento e te machuca, porém você ainda consegue escapar")
+
+											u.aguarde(2500)
+											energia = energia - 10
+											
+										}// fim do senao
+									pare
+									//horda de zumbis
+									caso 3:
+										escreva ("VOCÊ ENCONTROU UMA HORDA ZUMBIS  VINDO EM SUA DIREÇÃO!!!\n\n")
+										escreva ("o que você vai fazer?\n\n")
+										escreva ("1- atacar \n")
+										escreva ("2- fugir \n")
+										leia(opcaoacao)
+
+										se(opcaoacao == 1 ){
+										
+											escreva ("você não possui nenuma arma e acaba saindo ferido")
+
+											u.aguarde(2000)
+											energia = energia - energia
+											
+											
+										}//fim do se no escolha
+										senao {
+
+											escreva ("Você foge e consegue escapar")
+
+											u.aguarde(1500)
+											energia = energia - 10
+											
+										}// fim do senao
+									pare
+									//horda de zumbis
+								}//fim do escolha
+
+							
 							
 							energia = energia - 10
 						}//fim do OUTRO se
@@ -342,7 +673,91 @@ escreva("\n                                                                     
 					se(dificuldade == 2 e faccao == 2){
 		//médico//
 						se (evento <= 20){
-							escreva ("VOCÊ ENCONTROU UM ZUMBI!! ")
+
+							
+
+							qualquerevento = u.sorteia(1, 3)
+				//escolha caso para fazer as ações//
+								escolha(qualquerevento){
+
+								//zumbi comum\\
+									caso 1:
+										escreva ("VOCÊ ENCONTROU UM ZUMBI!!  \n\n")
+										escreva ("o que você vai fazer?\n\n")
+										escreva ("1- atacar \n")
+										escreva ("2- fugir \n")
+										leia(opcaoacao)
+
+										se(opcaoacao == 1 ){
+										
+											escreva ("você não possui nenuma arma e acaba saindo ferido")
+
+											u.aguarde(2000)
+											energia = energia - 10
+											
+											
+										}//fim do se no escolha
+										senao {
+
+											escreva ("Você foge e consegue escapar")
+
+											u.aguarde(2000)
+										}// fim do senao
+									pare
+								//zumbi corredor\\
+									caso 2:
+										escreva ("VOCÊ ENCONTROU UM ZUMBI CORREDOR VINDO EM SUA DIREÇÃO!!!\n\n")
+										escreva ("o que você vai fazer?\n\n")
+										escreva ("1- atacar \n")
+										escreva ("2- fugir \n")
+										leia(opcaoacao)
+
+										se(opcaoacao == 1 ){
+										
+											escreva ("você não possui nenuma arma e acaba saindo ferido")
+
+											u.aguarde(2000)
+											energia = energia - 10
+											
+											
+										}//fim do se no escolha
+										senao {
+
+											escreva ("Ele te agarra por um momento e te machuca, porém você ainda consegue escapar")
+
+											u.aguarde(2500)
+											energia = energia - 10
+											
+										}// fim do senao
+									pare
+									//horda de zumbis
+									caso 3:
+										escreva ("VOCÊ ENCONTROU UMA HORDA ZUMBIS  VINDO EM SUA DIREÇÃO!!!\n\n")
+										escreva ("o que você vai fazer?\n\n")
+										escreva ("1- atacar \n")
+										escreva ("2- fugir \n")
+										leia(opcaoacao)
+
+										se(opcaoacao == 1 ){
+										
+											escreva ("você não possui nenuma arma e acaba saindo ferido")
+
+											u.aguarde(2000)
+											energia = energia - energia
+											
+											
+										}//fim do se no escolha
+										senao {
+
+											escreva ("Você foge e consegue escapar")
+
+											u.aguarde(1500)
+											energia = energia - 10
+											
+										}// fim do senao
+									pare
+									//horda de zumbis
+								}//fim do escolha
 							
 							energia = energia - 20
 						}//fim do OUTRO se
@@ -357,7 +772,91 @@ escreva("\n                                                                     
 					se(dificuldade == 2 e faccao == 3){
 		//saqueador//
 						se (evento <= 20){
-							escreva ("VOCÊ ENCONTROU UM ZUMBI!! ")
+
+
+							qualquerevento = u.sorteia(1, 3)
+				//escolha caso para fazer as ações//
+								escolha(qualquerevento){
+
+								//zumbi comum\\
+									caso 1:
+										escreva ("VOCÊ ENCONTROU UM ZUMBI!!  \n\n")
+										escreva ("o que você vai fazer?\n\n")
+										escreva ("1- atacar \n")
+										escreva ("2- fugir \n")
+										leia(opcaoacao)
+
+										se(opcaoacao == 1 ){
+										
+											escreva ("você não possui nenuma arma e acaba saindo ferido")
+
+											u.aguarde(2000)
+											energia = energia - 10
+											
+											
+										}//fim do se no escolha
+										senao {
+
+											escreva ("Você foge e consegue escapar")
+
+											u.aguarde(2000)
+										}// fim do senao
+									pare
+								//zumbi corredor\\
+									caso 2:
+										escreva ("VOCÊ ENCONTROU UM ZUMBI CORREDOR VINDO EM SUA DIREÇÃO!!!\n\n")
+										escreva ("o que você vai fazer?\n\n")
+										escreva ("1- atacar \n")
+										escreva ("2- fugir \n")
+										leia(opcaoacao)
+
+										se(opcaoacao == 1 ){
+										
+											escreva ("você não possui nenuma arma e acaba saindo ferido")
+
+											u.aguarde(2000)
+											energia = energia - 10
+											
+											
+										}//fim do se no escolha
+										senao {
+
+											escreva ("Ele te agarra por um momento e te machuca, porém você ainda consegue escapar")
+
+											u.aguarde(2500)
+											energia = energia - 10
+											
+										}// fim do senao
+									pare
+									//horda de zumbis
+									caso 3:
+										escreva ("VOCÊ ENCONTROU UMA HORDA ZUMBIS  VINDO EM SUA DIREÇÃO!!!\n\n")
+										escreva ("o que você vai fazer?\n\n")
+										escreva ("1- atacar \n")
+										escreva ("2- fugir \n")
+										leia(opcaoacao)
+
+										se(opcaoacao == 1 ){
+										
+											escreva ("você não possui nenuma arma e acaba saindo ferido")
+
+											u.aguarde(2000)
+											energia = energia - energia
+											
+											
+										}//fim do se no escolha
+										senao {
+
+											escreva ("Você foge e consegue escapar")
+
+											u.aguarde(1500)
+											energia = energia - 10
+											
+										}// fim do senao
+									pare
+									//horda de zumbis
+								}//fim do escolha
+							
 							
 							energia = energia - 25
 						}//fim do OUTRO se
@@ -374,7 +873,91 @@ escreva("\n                                                                     
 					se(dificuldade == 3 e faccao == 1 ){
 		//militar//
 						se (evento <= 30){
-							escreva ("VOCÊ ENCONTROU UM ZUMBI!! ")
+
+						
+							qualquerevento = u.sorteia(1, 3)
+				//escolha caso para fazer as ações//
+								escolha(qualquerevento){
+
+								//zumbi comum\\
+									caso 1:
+										escreva ("VOCÊ ENCONTROU UM ZUMBI!!  \n\n")
+										escreva ("o que você vai fazer?\n\n")
+										escreva ("1- atacar \n")
+										escreva ("2- fugir \n")
+										leia(opcaoacao)
+
+										se(opcaoacao == 1 ){
+										
+											escreva ("você não possui nenuma arma e acaba saindo ferido")
+
+											u.aguarde(2000)
+											energia = energia - 10
+											
+											
+										}//fim do se no escolha
+										senao {
+
+											escreva ("Você foge e consegue escapar")
+
+											u.aguarde(2000)
+										}// fim do senao
+									pare
+								//zumbi corredor\\
+									caso 2:
+										escreva ("VOCÊ ENCONTROU UM ZUMBI CORREDOR VINDO EM SUA DIREÇÃO!!!\n\n")
+										escreva ("o que você vai fazer?\n\n")
+										escreva ("1- atacar \n")
+										escreva ("2- fugir \n")
+										leia(opcaoacao)
+
+										se(opcaoacao == 1 ){
+										
+											escreva ("você não possui nenuma arma e acaba saindo ferido")
+
+											u.aguarde(2000)
+											energia = energia - 10
+											
+											
+										}//fim do se no escolha
+										senao {
+
+											escreva ("Ele te agarra por um momento e te machuca, porém você ainda consegue escapar")
+
+											u.aguarde(2500)
+											energia = energia - 10
+											
+										}// fim do senao
+									pare
+									//horda de zumbis
+									caso 3:
+										escreva ("VOCÊ ENCONTROU UMA HORDA ZUMBIS  VINDO EM SUA DIREÇÃO!!!\n\n")
+										escreva ("o que você vai fazer?\n\n")
+										escreva ("1- atacar \n")
+										escreva ("2- fugir \n")
+										leia(opcaoacao)
+
+										se(opcaoacao == 1 ){
+										
+											escreva ("você não possui nenuma arma e acaba saindo ferido")
+
+											u.aguarde(2000)
+											energia = energia - energia
+											
+											
+										}//fim do se no escolha
+										senao {
+
+											escreva ("Você foge e consegue escapar")
+
+											u.aguarde(1500)
+											energia = energia - 10
+											
+										}// fim do senao
+									pare
+									//horda de zumbis
+								}//fim do escolha
+							
 				
 							energia = energia - 10
 						}//fim do OUTRO se
@@ -389,7 +972,92 @@ escreva("\n                                                                     
 					se(dificuldade == 3 e faccao == 2 ){
 		//médico//
 						se (evento <= 30){
-							escreva ("VOCÊ ENCONTROU UM ZUMBI!! ")
+
+							
+
+							qualquerevento = u.sorteia(1, 3)
+				//escolha caso para fazer as ações//
+								escolha(qualquerevento){
+
+								//zumbi comum\\
+									caso 1:
+										escreva ("VOCÊ ENCONTROU UM ZUMBI!!  \n\n")
+										escreva ("o que você vai fazer?\n\n")
+										escreva ("1- atacar \n")
+										escreva ("2- fugir \n")
+										leia(opcaoacao)
+
+										se(opcaoacao == 1 ){
+										
+											escreva ("você não possui nenuma arma e acaba saindo ferido")
+
+											u.aguarde(2000)
+											energia = energia - 10
+											
+											
+										}//fim do se no escolha
+										senao {
+
+											escreva ("Você foge e consegue escapar")
+
+											u.aguarde(2000)
+										}// fim do senao
+									pare
+								//zumbi corredor\\
+									caso 2:
+										escreva ("VOCÊ ENCONTROU UM ZUMBI CORREDOR VINDO EM SUA DIREÇÃO!!!\n\n")
+										escreva ("o que você vai fazer?\n\n")
+										escreva ("1- atacar \n")
+										escreva ("2- fugir \n")
+										leia(opcaoacao)
+
+										se(opcaoacao == 1 ){
+										
+											escreva ("você não possui nenuma arma e acaba saindo ferido")
+
+											u.aguarde(2000)
+											energia = energia - 10
+											
+											
+										}//fim do se no escolha
+										senao {
+
+											escreva ("Ele te agarra por um momento e te machuca, porém você ainda consegue escapar")
+
+											u.aguarde(2500)
+											energia = energia - 10
+											
+										}// fim do senao
+									pare
+									//horda de zumbis
+									caso 3:
+										escreva ("VOCÊ ENCONTROU UMA HORDA ZUMBIS  VINDO EM SUA DIREÇÃO!!!\n\n")
+										escreva ("o que você vai fazer?\n\n")
+										escreva ("1- atacar \n")
+										escreva ("2- fugir \n")
+										leia(opcaoacao)
+
+										se(opcaoacao == 1 ){
+										
+											escreva ("você não possui nenuma arma e acaba saindo ferido")
+
+											u.aguarde(2000)
+											energia = energia - energia
+											
+											
+										}//fim do se no escolha
+										senao {
+
+											escreva ("Você foge e consegue escapar")
+
+											u.aguarde(1500)
+											energia = energia - 10
+											
+										}// fim do senao
+									pare
+									//horda de zumbis
+								}//fim do escolha
+							
 				
 							energia = energia - 20
 						}//fim do OUTRO se
@@ -404,7 +1072,92 @@ escreva("\n                                                                     
 					se(dificuldade == 3 e faccao == 3 ){
 		//saqueador//
 						se (evento <= 30){
-							escreva ("VOCÊ ENCONTROU UM ZUMBI!! ")
+
+							
+
+							qualquerevento = u.sorteia(1, 3)
+				//escolha caso para fazer as ações//
+								escolha(qualquerevento){
+
+								//zumbi comum\\
+									caso 1:
+										escreva ("VOCÊ ENCONTROU UM ZUMBI!!  \n\n")
+										escreva ("o que você vai fazer?\n\n")
+										escreva ("1- atacar \n")
+										escreva ("2- fugir \n")
+										leia(opcaoacao)
+
+										se(opcaoacao == 1 ){
+										
+											escreva ("você não possui nenuma arma e acaba saindo ferido")
+
+											u.aguarde(2000)
+											energia = energia - 10
+											
+											
+										}//fim do se no escolha
+										senao {
+
+											escreva ("Você foge e consegue escapar")
+
+											u.aguarde(2000)
+										}// fim do senao
+									pare
+								//zumbi corredor\\
+									caso 2:
+										escreva ("VOCÊ ENCONTROU UM ZUMBI CORREDOR VINDO EM SUA DIREÇÃO!!!\n\n")
+										escreva ("o que você vai fazer?\n\n")
+										escreva ("1- atacar \n")
+										escreva ("2- fugir \n")
+										leia(opcaoacao)
+
+										se(opcaoacao == 1 ){
+										
+											escreva ("você não possui nenuma arma e acaba saindo ferido")
+
+											u.aguarde(2000)
+											energia = energia - 10
+											
+											
+										}//fim do se no escolha
+										senao {
+
+											escreva ("Ele te agarra por um momento e te machuca, porém você ainda consegue escapar")
+
+											u.aguarde(2500)
+											energia = energia - 10
+											
+										}// fim do senao
+									pare
+									//horda de zumbis
+									caso 3:
+										escreva ("VOCÊ ENCONTROU UMA HORDA ZUMBIS  VINDO EM SUA DIREÇÃO!!!\n\n")
+										escreva ("o que você vai fazer?\n\n")
+										escreva ("1- atacar \n")
+										escreva ("2- fugir \n")
+										leia(opcaoacao)
+
+										se(opcaoacao == 1 ){
+										
+											escreva ("você não possui nenuma arma e acaba saindo ferido")
+
+											u.aguarde(2000)
+											energia = energia - energia
+											
+											
+										}//fim do se no escolha
+										senao {
+
+											escreva ("Você foge e consegue escapar")
+
+											u.aguarde(1500)
+											energia = energia - 10
+											
+										}// fim do senao
+									pare
+									//horda de zumbis
+								}//fim do escolha
+							
 				
 							energia = energia - 25
 						}//fim do OUTRO se
@@ -421,7 +1174,91 @@ escreva("\n                                                                     
 					se(dificuldade == 4 e faccao == 1 ){
 		//militar//
 						se (evento <= 30){
-							escreva ("VOCÊ ENCONTROU UM ZUMBI!! ")
+
+
+							
+							qualquerevento = u.sorteia(1, 3)
+				//escolha caso para fazer as ações//
+								escolha(qualquerevento){
+
+								//zumbi comum\\
+									caso 1:
+										escreva ("VOCÊ ENCONTROU UM ZUMBI!!  \n\n")
+										escreva ("o que você vai fazer?\n\n")
+										escreva ("1- atacar \n")
+										escreva ("2- fugir \n")
+										leia(opcaoacao)
+
+										se(opcaoacao == 1 ){
+										
+											escreva ("você não possui nenuma arma e acaba saindo ferido")
+
+											u.aguarde(2000)
+											energia = energia - 10
+											
+											
+										}//fim do se no escolha
+										senao {
+
+											escreva ("Você foge e consegue escapar")
+
+											u.aguarde(2000)
+										}// fim do senao
+									pare
+								//zumbi corredor\\
+									caso 2:
+										escreva ("VOCÊ ENCONTROU UM ZUMBI CORREDOR VINDO EM SUA DIREÇÃO!!!\n\n")
+										escreva ("o que você vai fazer?\n\n")
+										escreva ("1- atacar \n")
+										escreva ("2- fugir \n")
+										leia(opcaoacao)
+
+										se(opcaoacao == 1 ){
+										
+											escreva ("você não possui nenuma arma e acaba saindo ferido")
+
+											u.aguarde(2000)
+											energia = energia - 10
+											
+											
+										}//fim do se no escolha
+										senao {
+
+											escreva ("Ele te agarra por um momento e te machuca, porém você ainda consegue escapar")
+
+											u.aguarde(2500)
+											energia = energia - 10
+											
+										}// fim do senao
+									pare
+									//horda de zumbis
+									caso 3:
+										escreva ("VOCÊ ENCONTROU UMA HORDA ZUMBIS  VINDO EM SUA DIREÇÃO!!!\n\n")
+										escreva ("o que você vai fazer?\n\n")
+										escreva ("1- atacar \n")
+										escreva ("2- fugir \n")
+										leia(opcaoacao)
+
+										se(opcaoacao == 1 ){
+										
+											escreva ("você não possui nenuma arma e acaba saindo ferido")
+
+											u.aguarde(2000)
+											energia = energia - energia
+											
+											
+										}//fim do se no escolha
+										senao {
+
+											escreva ("Você foge e consegue escapar")
+
+											u.aguarde(1500)
+											energia = energia - 10
+											
+										}// fim do senao
+									pare
+									//horda de zumbis
+								}//fim do escolha
 				
 							energia = energia - 10
 						}//fim do OUTRO se
@@ -436,7 +1273,91 @@ escreva("\n                                                                     
 					se(dificuldade == 4 e faccao == 2 ){
 		//médico//
 						se (evento <= 30){
-							escreva ("VOCÊ ENCONTROU UM ZUMBI!! ")
+
+
+							
+							qualquerevento = u.sorteia(1, 3)
+				//escolha caso para fazer as ações//
+								escolha(qualquerevento){
+
+								//zumbi comum\\
+									caso 1:
+										escreva ("VOCÊ ENCONTROU UM ZUMBI!!  \n\n")
+										escreva ("o que você vai fazer?\n\n")
+										escreva ("1- atacar \n")
+										escreva ("2- fugir \n")
+										leia(opcaoacao)
+
+										se(opcaoacao == 1 ){
+										
+											escreva ("você não possui nenuma arma e acaba saindo ferido")
+
+											u.aguarde(2000)
+											energia = energia - 10
+											
+											
+										}//fim do se no escolha
+										senao {
+
+											escreva ("Você foge e consegue escapar")
+
+											u.aguarde(2000)
+										}// fim do senao
+									pare
+								//zumbi corredor\\
+									caso 2:
+										escreva ("VOCÊ ENCONTROU UM ZUMBI CORREDOR VINDO EM SUA DIREÇÃO!!!\n\n")
+										escreva ("o que você vai fazer?\n\n")
+										escreva ("1- atacar \n")
+										escreva ("2- fugir \n")
+										leia(opcaoacao)
+
+										se(opcaoacao == 1 ){
+										
+											escreva ("você não possui nenuma arma e acaba saindo ferido")
+
+											u.aguarde(2000)
+											energia = energia - 10
+											
+											
+										}//fim do se no escolha
+										senao {
+
+											escreva ("Ele te agarra por um momento e te machuca, porém você ainda consegue escapar")
+
+											u.aguarde(2500)
+											energia = energia - 10
+											
+										}// fim do senao
+									pare
+									//horda de zumbis
+									caso 3:
+										escreva ("VOCÊ ENCONTROU UMA HORDA ZUMBIS  VINDO EM SUA DIREÇÃO!!!\n\n")
+										escreva ("o que você vai fazer?\n\n")
+										escreva ("1- atacar \n")
+										escreva ("2- fugir \n")
+										leia(opcaoacao)
+
+										se(opcaoacao == 1 ){
+										
+											escreva ("você não possui nenuma arma e acaba saindo ferido")
+
+											u.aguarde(2000)
+											energia = energia - energia
+											
+											
+										}//fim do se no escolha
+										senao {
+
+											escreva ("Você foge e consegue escapar")
+
+											u.aguarde(1500)
+											energia = energia - 10
+											
+										}// fim do senao
+									pare
+									//horda de zumbis
+								}//fim do escolha
 				
 							energia = energia - 20
 						}//fim do OUTRO se
@@ -451,7 +1372,91 @@ escreva("\n                                                                     
 					se(dificuldade == 4 e faccao == 3 ){
 		//saqueador//
 						se (evento <= 30){
-							escreva ("VOCÊ ENCONTROU UM ZUMBI!! ")
+
+
+							
+							qualquerevento = u.sorteia(1, 3)
+				//escolha caso para fazer as ações//
+								escolha(qualquerevento){
+
+								//zumbi comum\\
+									caso 1:
+										escreva ("VOCÊ ENCONTROU UM ZUMBI!!  \n\n")
+										escreva ("o que você vai fazer?\n\n")
+										escreva ("1- atacar \n")
+										escreva ("2- fugir \n")
+										leia(opcaoacao)
+
+										se(opcaoacao == 1 ){
+										
+											escreva ("você não possui nenuma arma e acaba saindo ferido")
+
+											u.aguarde(2000)
+											energia = energia - 10
+											
+											
+										}//fim do se no escolha
+										senao {
+
+											escreva ("Você foge e consegue escapar")
+
+											u.aguarde(2000)
+										}// fim do senao
+									pare
+								//zumbi corredor\\
+									caso 2:
+										escreva ("VOCÊ ENCONTROU UM ZUMBI CORREDOR VINDO EM SUA DIREÇÃO!!!\n\n")
+										escreva ("o que você vai fazer?\n\n")
+										escreva ("1- atacar \n")
+										escreva ("2- fugir \n")
+										leia(opcaoacao)
+
+										se(opcaoacao == 1 ){
+										
+											escreva ("você não possui nenuma arma e acaba saindo ferido")
+
+											u.aguarde(2000)
+											energia = energia - 10
+											
+											
+										}//fim do se no escolha
+										senao {
+
+											escreva ("Ele te agarra por um momento e te machuca, porém você ainda consegue escapar")
+
+											u.aguarde(2500)
+											energia = energia - 10
+											
+										}// fim do senao
+									pare
+									//horda de zumbis
+									caso 3:
+										escreva ("VOCÊ ENCONTROU UMA HORDA ZUMBIS  VINDO EM SUA DIREÇÃO!!!\n\n")
+										escreva ("o que você vai fazer?\n\n")
+										escreva ("1- atacar \n")
+										escreva ("2- fugir \n")
+										leia(opcaoacao)
+
+										se(opcaoacao == 1 ){
+										
+											escreva ("você não possui nenuma arma e acaba saindo ferido")
+
+											u.aguarde(2000)
+											energia = energia - energia
+											
+											
+										}//fim do se no escolha
+										senao {
+
+											escreva ("Você foge e consegue escapar")
+
+											u.aguarde(1500)
+											energia = energia - 10
+											
+										}// fim do senao
+									pare
+									//horda de zumbis
+								}//fim do escolha
 				
 							energia = energia - 25
 						}//fim do OUTRO se
@@ -466,7 +1471,7 @@ escreva("\n                                                                     
 
 				pare
 
-
+/////////////////-------------------------ESCOLHA DAS OPÇÕES-----------------------\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 				
 				caso 2:
 			///DE ACORDO COM A DIFICULDADE A CHANCE DE EVENTO E ENCONTRO DE ITENS MUDA///
@@ -474,7 +1479,22 @@ escreva("\n                                                                     
 					se(dificuldade == 1 e faccao == 1){
 		//militar//
 						se (evento <= 10){
-							escreva ("VOCÊ FOI ATACADO DE SURPRESA POR UM ZUMBI!! ")
+							escreva ("VOCÊ FOI ATACADO DE SURPRESA POR UM ZUMBI!! \n\n")
+							escreva ("o que você vai fazer?\n\n")
+							escreva ("1- reagir\n")
+							escreva ("2- fugir do locar\n")
+							leia (opcaoacao)
+
+							se(opcaoacao == 1){
+								escreva("Você reage mas acava se ferindo")
+								u.aguarde(2000)
+								energia = energia - 10
+							}//aa
+							senao{
+								escreva("Você foge do local")
+								u.aguarde(1500)
+							}//nn
+								
 				
 							energia = energia - 10
 						}//fim do OUTRO se
@@ -489,7 +1509,21 @@ escreva("\n                                                                     
 					se(dificuldade == 1 e faccao == 2){
 		//médico//
 						se (evento <= 10){
-							escreva ("VOCÊ FOI ATACADO DE SURPRESA POR UM ZUMBI!! ")
+							escreva ("VOCÊ FOI ATACADO DE SURPRESA POR UM ZUMBI!! \n\n")
+							escreva ("o que você vai fazer?\n\n")
+							escreva ("1- reagir\n")
+							escreva ("2- fugir do locar\n")
+							leia (opcaoacao)
+
+							se(opcaoacao == 1){
+								escreva("Você reage mas acava se ferindo")
+								u.aguarde(2000)
+								energia = energia - 10
+							}//aa
+							senao{
+								escreva("Você foge do local")
+								u.aguarde(1500)
+							}//nn
 				
 							energia = energia - 20
 						}//fim do OUTRO se
@@ -504,7 +1538,21 @@ escreva("\n                                                                     
 					se(dificuldade == 1 e faccao == 3){
 		//militar//
 						se (evento <= 10){
-							escreva ("VOCÊ FOI ATACADO DE SURPRESA POR UM ZUMBI!! ")
+							escreva ("VOCÊ FOI ATACADO DE SURPRESA POR UM ZUMBI!! \n\n")
+							escreva ("o que você vai fazer?\n\n")
+							escreva ("1- reagir\n")
+							escreva ("2- fugir do locar\n")
+							leia (opcaoacao)
+
+							se(opcaoacao == 1){
+								escreva("Você reage mas acava se ferindo")
+								u.aguarde(2000)
+								energia = energia - 10
+							}//aa
+							senao{
+								escreva("Você foge do local")
+								u.aguarde(1500)
+							}//nn
 				
 							energia = energia - 25
 						}//fim do OUTRO se
@@ -521,7 +1569,21 @@ escreva("\n                                                                     
 					se(dificuldade == 2 e faccao == 1 ){
 		//militar//
 						se (evento <= 20){
-							escreva ("VOCÊ FOI ATACADO DE SURPRESA POR UM ZUMBI!!")
+							escreva ("VOCÊ FOI ATACADO DE SURPRESA POR UM ZUMBI!! \n\n")
+							escreva ("o que você vai fazer?\n\n")
+							escreva ("1- reagir\n")
+							escreva ("2- fugir do locar\n")
+							leia (opcaoacao)
+
+							se(opcaoacao == 1){
+								escreva("Você reage mas acava se ferindo")
+								u.aguarde(2000)
+								energia = energia - 10
+							}//aa
+							senao{
+								escreva("Você foge do local")
+								u.aguarde(1500)
+							}//nn
 							
 							energia = energia - 10
 						}//fim do OUTRO se
@@ -536,7 +1598,21 @@ escreva("\n                                                                     
 					se(dificuldade == 2 e faccao == 2 ){
 		//médico//
 						se (evento <= 20){
-							escreva ("VOCÊ FOI ATACADO DE SURPRESA POR UM ZUMBI!!")
+							escreva ("VOCÊ FOI ATACADO DE SURPRESA POR UM ZUMBI!! \n\n")
+							escreva ("o que você vai fazer?\n\n")
+							escreva ("1- reagir\n")
+							escreva ("2- fugir do locar\n")
+							leia (opcaoacao)
+
+							se(opcaoacao == 1){
+								escreva("Você reage mas acava se ferindo")
+								u.aguarde(2000)
+								energia = energia - 10
+							}//aa
+							senao{
+								escreva("Você foge do local")
+								u.aguarde(1500)
+							}//nn
 							
 							energia = energia - 10
 						}//fim do OUTRO se
@@ -551,7 +1627,21 @@ escreva("\n                                                                     
 					se(dificuldade == 2 e faccao == 3 ){
 		//saqueador//
 						se (evento <= 20){
-							escreva ("VOCÊ FOI ATACADO DE SURPRESA POR UM ZUMBI!!")
+							escreva ("VOCÊ FOI ATACADO DE SURPRESA POR UM ZUMBI!! \n\n")
+							escreva ("o que você vai fazer?\n\n")
+							escreva ("1- reagir\n")
+							escreva ("2- fugir do locar\n")
+							leia (opcaoacao)
+
+							se(opcaoacao == 1){
+								escreva("Você reage mas acava se ferindo")
+								u.aguarde(2000)
+								energia = energia - 10
+							}//aa
+							senao{
+								escreva("Você foge do local")
+								u.aguarde(1500)
+							}//nn
 							
 							energia = energia - 25
 						}//fim do OUTRO se
@@ -568,7 +1658,21 @@ escreva("\n                                                                     
 					se(dificuldade == 3 e faccao == 1){
 		//militar//
 						se (evento <= 30){
-							escreva ("VOCÊ FOI ATACADO DE SURPRESA POR UM ZUMBI!!! ")
+							escreva ("VOCÊ FOI ATACADO DE SURPRESA POR UM ZUMBI!! \n\n")
+							escreva ("o que você vai fazer?\n\n")
+							escreva ("1- reagir\n")
+							escreva ("2- fugir do locar\n")
+							leia (opcaoacao)
+
+							se(opcaoacao == 1){
+								escreva("Você reage mas acava se ferindo")
+								u.aguarde(2000)
+								energia = energia - 10
+							}//aa
+							senao{
+								escreva("Você foge do local")
+								u.aguarde(1500)
+							}//nn
 				
 							energia = energia - 10
 						}//fim do OUTRO se
@@ -583,7 +1687,21 @@ escreva("\n                                                                     
 					se(dificuldade == 3 e faccao == 2){
 		//medico//
 						se (evento <= 30){
-							escreva ("VOCÊ FOI ATACADO DE SURPRESA POR UM ZUMBI!!! ")
+							escreva ("VOCÊ FOI ATACADO DE SURPRESA POR UM ZUMBI!! \n\n")
+							escreva ("o que você vai fazer?\n\n")
+							escreva ("1- reagir\n")
+							escreva ("2- fugir do locar\n")
+							leia (opcaoacao)
+
+							se(opcaoacao == 1){
+								escreva("Você reage mas acava se ferindo")
+								u.aguarde(2000)
+								energia = energia - 10
+							}//aa
+							senao{
+								escreva("Você foge do local")
+								u.aguarde(1500)
+							}//nn
 				
 							energia = energia - 20
 						}//fim do OUTRO se
@@ -598,7 +1716,21 @@ escreva("\n                                                                     
 					se(dificuldade == 3 e faccao == 3){
 		//saqueador//
 						se (evento <= 30){
-							escreva ("VOCÊ FOI ATACADO DE SURPRESA POR UM ZUMBI!!! ")
+							escreva ("VOCÊ FOI ATACADO DE SURPRESA POR UM ZUMBI!! \n\n")
+							escreva ("o que você vai fazer?\n\n")
+							escreva ("1- reagir\n")
+							escreva ("2- fugir do locar\n")
+							leia (opcaoacao)
+
+							se(opcaoacao == 1){
+								escreva("Você reage mas acava se ferindo")
+								u.aguarde(2000)
+								energia = energia - 10
+							}//aa
+							senao{
+								escreva("Você foge do local")
+								u.aguarde(1500)
+							}//nn
 				
 							energia = energia - 25
 						}//fim do OUTRO se
@@ -616,7 +1748,21 @@ escreva("\n                                                                     
 					se(dificuldade == 4 e faccao == 1 ){
 		//militar//
 						se (evento <= 45){
-							escreva ("VOCÊ FOI ATACADO DE SURPRESA POR UM ZUMBI!!! ")
+							escreva ("VOCÊ FOI ATACADO DE SURPRESA POR UM ZUMBI!! \n\n")
+							escreva ("o que você vai fazer?\n\n")
+							escreva ("1- reagir\n")
+							escreva ("2- fugir do locar\n")
+							leia (opcaoacao)
+
+							se(opcaoacao == 1){
+								escreva("Você reage mas acava se ferindo")
+								u.aguarde(2000)
+								energia = energia - 10
+							}//aa
+							senao{
+								escreva("Você foge do local")
+								u.aguarde(1500)
+							}//nn
 				
 							energia = energia - 10
 						}//fim do OUTRO se
@@ -631,7 +1777,21 @@ escreva("\n                                                                     
 					se(dificuldade == 4 e faccao == 2 ){
 		//medico//
 						se (evento <= 45){
-							escreva ("VOCÊ FOI ATACADO DE SURPRESA POR UM ZUMBI!!! ")
+							escreva ("VOCÊ FOI ATACADO DE SURPRESA POR UM ZUMBI!! \n\n")
+							escreva ("o que você vai fazer?\n\n")
+							escreva ("1- reagir\n")
+							escreva ("2- fugir do locar\n")
+							leia (opcaoacao)
+
+							se(opcaoacao == 1){
+								escreva("Você reage mas acava se ferindo")
+								u.aguarde(2000)
+								energia = energia - 10
+							}//aa
+							senao{
+								escreva("Você foge do local")
+								u.aguarde(1500)
+							}//nn
 				
 							energia = energia - 20
 						}//fim do OUTRO se
@@ -646,7 +1806,21 @@ escreva("\n                                                                     
 					se(dificuldade == 4 e faccao == 3 ){
 		//saqueador//
 						se (evento <= 45){
-							escreva ("VOCÊ FOI ATACADO DE SURPRESA POR UM ZUMBI!!! ")
+							escreva ("VOCÊ FOI ATACADO DE SURPRESA POR UM ZUMBI!! \n\n")
+							escreva ("o que você vai fazer?\n\n")
+							escreva ("1- reagir\n")
+							escreva ("2- fugir do locar\n")
+							leia (opcaoacao)
+
+							se(opcaoacao == 1){
+								escreva("Você reage mas acava se ferindo")
+								u.aguarde(2000)
+								energia = energia - 10
+							}//aa
+							senao{
+								escreva("Você foge do local")
+								u.aguarde(1500)
+							}//nn
 				
 							energia = energia - 25
 						}//fim do OUTRO se
@@ -661,15 +1835,98 @@ escreva("\n                                                                     
 					
 				pare
 
+/////////////////-------------------------ESCOLHA DAS OPÇÕES-----------------------\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 				
 				caso 3:
 ///////DIFICULDADE FÁCIL//////////////////////////////////
 					se(dificuldade == 1 e faccao == 1){
 		//militar//
 						se (evento <= 10){
-							escreva ("VOCÊ FOI ATACADO DE SURPRESA POR UM ZUMBI!! ")
+							
+							qualquerevento = u.sorteia(1, 3)
+				//escolha caso para fazer as ações//
+								escolha(qualquerevento){
+
+								//zumbi comum\\
+									caso 1:
+										escreva ("VOCÊ ENCONTROU UM ZUMBI!!  \n\n")
+										escreva ("o que você vai fazer?\n\n")
+										escreva ("1- atacar \n")
+										escreva ("2- fugir \n")
+										leia(opcaoacao)
+
+										se(opcaoacao == 1 ){
+										
+											escreva ("você não possui nenuma arma e acaba saindo ferido")
+
+											u.aguarde(2000)
+											energia = energia - 10
+											
+											
+										}//fim do se no escolha
+										senao {
+
+											escreva ("Você foge e consegue escapar")
+
+											u.aguarde(2000)
+										}// fim do senao
+									pare
+								//zumbi corredor\\
+									caso 2:
+										escreva ("VOCÊ ENCONTROU UM ZUMBI CORREDOR VINDO EM SUA DIREÇÃO!!!\n\n")
+										escreva ("o que você vai fazer?\n\n")
+										escreva ("1- atacar \n")
+										escreva ("2- fugir \n")
+										leia(opcaoacao)
+
+										se(opcaoacao == 1 ){
+										
+											escreva ("você não possui nenuma arma e acaba saindo ferido")
+
+											u.aguarde(2000)
+											energia = energia - 10
+											
+											
+										}//fim do se no escolha
+										senao {
+
+											escreva ("Ele te agarra por um momento e te machuca, porém você ainda consegue escapar")
+
+											u.aguarde(2500)
+											energia = energia - 10
+											
+										}// fim do senao
+									pare
+									//horda de zumbis
+									caso 3:
+										escreva ("VOCÊ ENCONTROU UMA HORDA ZUMBIS  VINDO EM SUA DIREÇÃO!!!\n\n")
+										escreva ("o que você vai fazer?\n\n")
+										escreva ("1- atacar \n")
+										escreva ("2- fugir \n")
+										leia(opcaoacao)
+
+										se(opcaoacao == 1 ){
+										
+											escreva ("você não possui nenuma arma e acaba saindo ferido")
+
+											u.aguarde(2000)
+											energia = energia - energia
+											
+											
+										}//fim do se no escolha
+										senao {
+
+											escreva ("Você foge e consegue escapar")
+
+											u.aguarde(1500)
+											energia = energia - 10
+											
+										}// fim do senao
+									pare
+									//horda de zumbis
+								}//fim do escolha
 				
-							energia = energia - 10
+							energia = energia + 10
 						}//fim do OUTRO se
 						senao{
 							escreva ("você procura suprimentos. ")
@@ -682,7 +1939,91 @@ escreva("\n                                                                     
 					se(dificuldade == 1 e faccao == 2){
 		//médico//
 						se (evento <= 10){
-							escreva ("VOCÊ FOI ATACADO DE SURPRESA POR UM ZUMBI!! ")
+
+
+							
+							qualquerevento = u.sorteia(1, 3)
+				//escolha caso para fazer as ações//
+								escolha(qualquerevento){
+
+								//zumbi comum\\
+									caso 1:
+										escreva ("VOCÊ ENCONTROU UM ZUMBI!!  \n\n")
+										escreva ("o que você vai fazer?\n\n")
+										escreva ("1- atacar \n")
+										escreva ("2- fugir \n")
+										leia(opcaoacao)
+
+										se(opcaoacao == 1 ){
+										
+											escreva ("você não possui nenuma arma e acaba saindo ferido")
+
+											u.aguarde(2000)
+											energia = energia - 10
+											
+											
+										}//fim do se no escolha
+										senao {
+
+											escreva ("Você foge e consegue escapar")
+
+											u.aguarde(2000)
+										}// fim do senao
+									pare
+								//zumbi corredor\\
+									caso 2:
+										escreva ("VOCÊ ENCONTROU UM ZUMBI CORREDOR VINDO EM SUA DIREÇÃO!!!\n\n")
+										escreva ("o que você vai fazer?\n\n")
+										escreva ("1- atacar \n")
+										escreva ("2- fugir \n")
+										leia(opcaoacao)
+
+										se(opcaoacao == 1 ){
+										
+											escreva ("você não possui nenuma arma e acaba saindo ferido")
+
+											u.aguarde(2000)
+											energia = energia - 10
+											
+											
+										}//fim do se no escolha
+										senao {
+
+											escreva ("Ele te agarra por um momento e te machuca, porém você ainda consegue escapar")
+
+											u.aguarde(2500)
+											energia = energia - 10
+											
+										}// fim do senao
+									pare
+									//horda de zumbis
+									caso 3:
+										escreva ("VOCÊ ENCONTROU UMA HORDA ZUMBIS  VINDO EM SUA DIREÇÃO!!!\n\n")
+										escreva ("o que você vai fazer?\n\n")
+										escreva ("1- atacar \n")
+										escreva ("2- fugir \n")
+										leia(opcaoacao)
+
+										se(opcaoacao == 1 ){
+										
+											escreva ("você não possui nenuma arma e acaba saindo ferido")
+
+											u.aguarde(2000)
+											energia = energia - energia
+											
+											
+										}//fim do se no escolha
+										senao {
+
+											escreva ("Você foge e consegue escapar")
+
+											u.aguarde(1500)
+											energia = energia - 10
+											
+										}// fim do senao
+									pare
+									//horda de zumbis
+								}//fim do escolha
 				
 							energia = energia - 20
 						}//fim do OUTRO se
@@ -697,7 +2038,91 @@ escreva("\n                                                                     
 					se(dificuldade == 1 e faccao == 3){
 		//militar//
 						se (evento <= 10){
-							escreva ("VOCÊ FOI ATACADO DE SURPRESA POR UM ZUMBI!! ")
+
+
+							
+							qualquerevento = u.sorteia(1, 3)
+				//escolha caso para fazer as ações//
+								escolha(qualquerevento){
+
+								//zumbi comum\\
+									caso 1:
+										escreva ("VOCÊ ENCONTROU UM ZUMBI!!  \n\n")
+										escreva ("o que você vai fazer?\n\n")
+										escreva ("1- atacar \n")
+										escreva ("2- fugir \n")
+										leia(opcaoacao)
+
+										se(opcaoacao == 1 ){
+										
+											escreva ("você não possui nenuma arma e acaba saindo ferido")
+
+											u.aguarde(2000)
+											energia = energia - 10
+											
+											
+										}//fim do se no escolha
+										senao {
+
+											escreva ("Você foge e consegue escapar")
+
+											u.aguarde(2000)
+										}// fim do senao
+									pare
+								//zumbi corredor\\
+									caso 2:
+										escreva ("VOCÊ ENCONTROU UM ZUMBI CORREDOR VINDO EM SUA DIREÇÃO!!!\n\n")
+										escreva ("o que você vai fazer?\n\n")
+										escreva ("1- atacar \n")
+										escreva ("2- fugir \n")
+										leia(opcaoacao)
+
+										se(opcaoacao == 1 ){
+										
+											escreva ("você não possui nenuma arma e acaba saindo ferido")
+
+											u.aguarde(2000)
+											energia = energia - 10
+											
+											
+										}//fim do se no escolha
+										senao {
+
+											escreva ("Ele te agarra por um momento e te machuca, porém você ainda consegue escapar")
+
+											u.aguarde(2500)
+											energia = energia - 10
+											
+										}// fim do senao
+									pare
+									//horda de zumbis
+									caso 3:
+										escreva ("VOCÊ ENCONTROU UMA HORDA ZUMBIS  VINDO EM SUA DIREÇÃO!!!\n\n")
+										escreva ("o que você vai fazer?\n\n")
+										escreva ("1- atacar \n")
+										escreva ("2- fugir \n")
+										leia(opcaoacao)
+
+										se(opcaoacao == 1 ){
+										
+											escreva ("você não possui nenuma arma e acaba saindo ferido")
+
+											u.aguarde(2000)
+											energia = energia - energia
+											
+											
+										}//fim do se no escolha
+										senao {
+
+											escreva ("Você foge e consegue escapar")
+
+											u.aguarde(1500)
+											energia = energia - 10
+											
+										}// fim do senao
+									pare
+									//horda de zumbis
+								}//fim do escolha
 				
 							energia = energia - 25
 						}//fim do OUTRO se
@@ -713,7 +2138,91 @@ escreva("\n                                                                     
 					se(dificuldade == 2 e faccao == 1 ){
 		//militar//
 						se (evento <= 20){
-							escreva ("VOCÊ FOI ATACADO DE SURPRESA POR UM ZUMBI!!")
+
+
+							
+							qualquerevento = u.sorteia(1, 3)
+				//escolha caso para fazer as ações//
+								escolha(qualquerevento){
+
+								//zumbi comum\\
+									caso 1:
+										escreva ("VOCÊ ENCONTROU UM ZUMBI!!  \n\n")
+										escreva ("o que você vai fazer?\n\n")
+										escreva ("1- atacar \n")
+										escreva ("2- fugir \n")
+										leia(opcaoacao)
+
+										se(opcaoacao == 1 ){
+										
+											escreva ("você não possui nenuma arma e acaba saindo ferido")
+
+											u.aguarde(2000)
+											energia = energia - 10
+											
+											
+										}//fim do se no escolha
+										senao {
+
+											escreva ("Você foge e consegue escapar")
+
+											u.aguarde(2000)
+										}// fim do senao
+									pare
+								//zumbi corredor\\
+									caso 2:
+										escreva ("VOCÊ ENCONTROU UM ZUMBI CORREDOR VINDO EM SUA DIREÇÃO!!!\n\n")
+										escreva ("o que você vai fazer?\n\n")
+										escreva ("1- atacar \n")
+										escreva ("2- fugir \n")
+										leia(opcaoacao)
+
+										se(opcaoacao == 1 ){
+										
+											escreva ("você não possui nenuma arma e acaba saindo ferido")
+
+											u.aguarde(2000)
+											energia = energia - 10
+											
+											
+										}//fim do se no escolha
+										senao {
+
+											escreva ("Ele te agarra por um momento e te machuca, porém você ainda consegue escapar")
+
+											u.aguarde(2500)
+											energia = energia - 10
+											
+										}// fim do senao
+									pare
+									//horda de zumbis
+									caso 3:
+										escreva ("VOCÊ ENCONTROU UMA HORDA ZUMBIS  VINDO EM SUA DIREÇÃO!!!\n\n")
+										escreva ("o que você vai fazer?\n\n")
+										escreva ("1- atacar \n")
+										escreva ("2- fugir \n")
+										leia(opcaoacao)
+
+										se(opcaoacao == 1 ){
+										
+											escreva ("você não possui nenuma arma e acaba saindo ferido")
+
+											u.aguarde(2000)
+											energia = energia - energia
+											
+											
+										}//fim do se no escolha
+										senao {
+
+											escreva ("Você foge e consegue escapar")
+
+											u.aguarde(1500)
+											energia = energia - 10
+											
+										}// fim do senao
+									pare
+									//horda de zumbis
+								}//fim do escolha
 							
 							energia = energia - 10
 						}//fim do OUTRO se
@@ -728,7 +2237,91 @@ escreva("\n                                                                     
 					se(dificuldade == 2 e faccao == 2 ){
 		//médico//
 						se (evento <= 20){
-							escreva ("VOCÊ FOI ATACADO DE SURPRESA POR UM ZUMBI!!")
+
+
+							
+							qualquerevento = u.sorteia(1, 3)
+				//escolha caso para fazer as ações//
+								escolha(qualquerevento){
+
+								//zumbi comum\\
+									caso 1:
+										escreva ("VOCÊ ENCONTROU UM ZUMBI!!  \n\n")
+										escreva ("o que você vai fazer?\n\n")
+										escreva ("1- atacar \n")
+										escreva ("2- fugir \n")
+										leia(opcaoacao)
+
+										se(opcaoacao == 1 ){
+										
+											escreva ("você não possui nenuma arma e acaba saindo ferido")
+
+											u.aguarde(2000)
+											energia = energia - 10
+											
+											
+										}//fim do se no escolha
+										senao {
+
+											escreva ("Você foge e consegue escapar")
+
+											u.aguarde(2000)
+										}// fim do senao
+									pare
+								//zumbi corredor\\
+									caso 2:
+										escreva ("VOCÊ ENCONTROU UM ZUMBI CORREDOR VINDO EM SUA DIREÇÃO!!!\n\n")
+										escreva ("o que você vai fazer?\n\n")
+										escreva ("1- atacar \n")
+										escreva ("2- fugir \n")
+										leia(opcaoacao)
+
+										se(opcaoacao == 1 ){
+										
+											escreva ("você não possui nenuma arma e acaba saindo ferido")
+
+											u.aguarde(2000)
+											energia = energia - 10
+											
+											
+										}//fim do se no escolha
+										senao {
+
+											escreva ("Ele te agarra por um momento e te machuca, porém você ainda consegue escapar")
+
+											u.aguarde(2500)
+											energia = energia - 10
+											
+										}// fim do senao
+									pare
+									//horda de zumbis
+									caso 3:
+										escreva ("VOCÊ ENCONTROU UMA HORDA ZUMBIS  VINDO EM SUA DIREÇÃO!!!\n\n")
+										escreva ("o que você vai fazer?\n\n")
+										escreva ("1- atacar \n")
+										escreva ("2- fugir \n")
+										leia(opcaoacao)
+
+										se(opcaoacao == 1 ){
+										
+											escreva ("você não possui nenuma arma e acaba saindo ferido")
+
+											u.aguarde(2000)
+											energia = energia - energia
+											
+											
+										}//fim do se no escolha
+										senao {
+
+											escreva ("Você foge e consegue escapar")
+
+											u.aguarde(1500)
+											energia = energia - 10
+											
+										}// fim do senao
+									pare
+									//horda de zumbis
+								}//fim do escolha
 							
 							energia = energia - 10
 						}//fim do OUTRO se
@@ -743,7 +2336,91 @@ escreva("\n                                                                     
 					se(dificuldade == 2 e faccao == 3 ){
 		//saqueador//
 						se (evento <= 20){
-							escreva ("VOCÊ FOI ATACADO DE SURPRESA POR UM ZUMBI!!")
+
+
+							
+							qualquerevento = u.sorteia(1, 3)
+				//escolha caso para fazer as ações//
+								escolha(qualquerevento){
+
+								//zumbi comum\\
+									caso 1:
+										escreva ("VOCÊ ENCONTROU UM ZUMBI!!  \n\n")
+										escreva ("o que você vai fazer?\n\n")
+										escreva ("1- atacar \n")
+										escreva ("2- fugir \n")
+										leia(opcaoacao)
+
+										se(opcaoacao == 1 ){
+										
+											escreva ("você não possui nenuma arma e acaba saindo ferido")
+
+											u.aguarde(2000)
+											energia = energia - 10
+											
+											
+										}//fim do se no escolha
+										senao {
+
+											escreva ("Você foge e consegue escapar")
+
+											u.aguarde(2000)
+										}// fim do senao
+									pare
+								//zumbi corredor\\
+									caso 2:
+										escreva ("VOCÊ ENCONTROU UM ZUMBI CORREDOR VINDO EM SUA DIREÇÃO!!!\n\n")
+										escreva ("o que você vai fazer?\n\n")
+										escreva ("1- atacar \n")
+										escreva ("2- fugir \n")
+										leia(opcaoacao)
+
+										se(opcaoacao == 1 ){
+										
+											escreva ("você não possui nenuma arma e acaba saindo ferido")
+
+											u.aguarde(2000)
+											energia = energia - 10
+											
+											
+										}//fim do se no escolha
+										senao {
+
+											escreva ("Ele te agarra por um momento e te machuca, porém você ainda consegue escapar")
+
+											u.aguarde(2500)
+											energia = energia - 10
+											
+										}// fim do senao
+									pare
+									//horda de zumbis
+									caso 3:
+										escreva ("VOCÊ ENCONTROU UMA HORDA ZUMBIS  VINDO EM SUA DIREÇÃO!!!\n\n")
+										escreva ("o que você vai fazer?\n\n")
+										escreva ("1- atacar \n")
+										escreva ("2- fugir \n")
+										leia(opcaoacao)
+
+										se(opcaoacao == 1 ){
+										
+											escreva ("você não possui nenuma arma e acaba saindo ferido")
+
+											u.aguarde(2000)
+											energia = energia - energia
+											
+											
+										}//fim do se no escolha
+										senao {
+
+											escreva ("Você foge e consegue escapar")
+
+											u.aguarde(1500)
+											energia = energia - 10
+											
+										}// fim do senao
+									pare
+									//horda de zumbis
+								}//fim do escolha
 							
 							energia = energia - 25
 						}//fim do OUTRO se
@@ -759,7 +2436,91 @@ escreva("\n                                                                     
 					se(dificuldade == 3 e faccao == 1){
 		//militar//
 						se (evento <= 30){
-							escreva ("VOCÊ FOI ATACADO DE SURPRESA POR UM ZUMBI!!! ")
+
+
+							
+							qualquerevento = u.sorteia(1, 3)
+				//escolha caso para fazer as ações//
+								escolha(qualquerevento){
+
+								//zumbi comum\\
+									caso 1:
+										escreva ("VOCÊ ENCONTROU UM ZUMBI!!  \n\n")
+										escreva ("o que você vai fazer?\n\n")
+										escreva ("1- atacar \n")
+										escreva ("2- fugir \n")
+										leia(opcaoacao)
+
+										se(opcaoacao == 1 ){
+										
+											escreva ("você não possui nenuma arma e acaba saindo ferido")
+
+											u.aguarde(2000)
+											energia = energia - 10
+											
+											
+										}//fim do se no escolha
+										senao {
+
+											escreva ("Você foge e consegue escapar")
+
+											u.aguarde(2000)
+										}// fim do senao
+									pare
+								//zumbi corredor\\
+									caso 2:
+										escreva ("VOCÊ ENCONTROU UM ZUMBI CORREDOR VINDO EM SUA DIREÇÃO!!!\n\n")
+										escreva ("o que você vai fazer?\n\n")
+										escreva ("1- atacar \n")
+										escreva ("2- fugir \n")
+										leia(opcaoacao)
+
+										se(opcaoacao == 1 ){
+										
+											escreva ("você não possui nenuma arma e acaba saindo ferido")
+
+											u.aguarde(2000)
+											energia = energia - 10
+											
+											
+										}//fim do se no escolha
+										senao {
+
+											escreva ("Ele te agarra por um momento e te machuca, porém você ainda consegue escapar")
+
+											u.aguarde(2500)
+											energia = energia - 10
+											
+										}// fim do senao
+									pare
+									//horda de zumbis
+									caso 3:
+										escreva ("VOCÊ ENCONTROU UMA HORDA ZUMBIS  VINDO EM SUA DIREÇÃO!!!\n\n")
+										escreva ("o que você vai fazer?\n\n")
+										escreva ("1- atacar \n")
+										escreva ("2- fugir \n")
+										leia(opcaoacao)
+
+										se(opcaoacao == 1 ){
+										
+											escreva ("você não possui nenuma arma e acaba saindo ferido")
+
+											u.aguarde(2000)
+											energia = energia - energia
+											
+											
+										}//fim do se no escolha
+										senao {
+
+											escreva ("Você foge e consegue escapar")
+
+											u.aguarde(1500)
+											energia = energia - 10
+											
+										}// fim do senao
+									pare
+									//horda de zumbis
+								}//fim do escolha
 				
 							energia = energia - 10
 						}//fim do OUTRO se
@@ -774,7 +2535,91 @@ escreva("\n                                                                     
 					se(dificuldade == 3 e faccao == 2){
 		//medico//
 						se (evento <= 30){
-							escreva ("VOCÊ FOI ATACADO DE SURPRESA POR UM ZUMBI!!! ")
+
+
+							
+							qualquerevento = u.sorteia(1, 3)
+				//escolha caso para fazer as ações//
+								escolha(qualquerevento){
+
+								//zumbi comum\\
+									caso 1:
+										escreva ("VOCÊ ENCONTROU UM ZUMBI!!  \n\n")
+										escreva ("o que você vai fazer?\n\n")
+										escreva ("1- atacar \n")
+										escreva ("2- fugir \n")
+										leia(opcaoacao)
+
+										se(opcaoacao == 1 ){
+										
+											escreva ("você não possui nenuma arma e acaba saindo ferido")
+
+											u.aguarde(2000)
+											energia = energia - 10
+											
+											
+										}//fim do se no escolha
+										senao {
+
+											escreva ("Você foge e consegue escapar")
+
+											u.aguarde(2000)
+										}// fim do senao
+									pare
+								//zumbi corredor\\
+									caso 2:
+										escreva ("VOCÊ ENCONTROU UM ZUMBI CORREDOR VINDO EM SUA DIREÇÃO!!!\n\n")
+										escreva ("o que você vai fazer?\n\n")
+										escreva ("1- atacar \n")
+										escreva ("2- fugir \n")
+										leia(opcaoacao)
+
+										se(opcaoacao == 1 ){
+										
+											escreva ("você não possui nenuma arma e acaba saindo ferido")
+
+											u.aguarde(2000)
+											energia = energia - 10
+											
+											
+										}//fim do se no escolha
+										senao {
+
+											escreva ("Ele te agarra por um momento e te machuca, porém você ainda consegue escapar")
+
+											u.aguarde(2500)
+											energia = energia - 10
+											
+										}// fim do senao
+									pare
+									//horda de zumbis
+									caso 3:
+										escreva ("VOCÊ ENCONTROU UMA HORDA ZUMBIS  VINDO EM SUA DIREÇÃO!!!\n\n")
+										escreva ("o que você vai fazer?\n\n")
+										escreva ("1- atacar \n")
+										escreva ("2- fugir \n")
+										leia(opcaoacao)
+
+										se(opcaoacao == 1 ){
+										
+											escreva ("você não possui nenuma arma e acaba saindo ferido")
+
+											u.aguarde(2000)
+											energia = energia - energia
+											
+											
+										}//fim do se no escolha
+										senao {
+
+											escreva ("Você foge e consegue escapar")
+
+											u.aguarde(1500)
+											energia = energia - 10
+											
+										}// fim do senao
+									pare
+									//horda de zumbis
+								}//fim do escolha
 				
 							energia = energia - 20
 						}//fim do OUTRO se
@@ -789,7 +2634,91 @@ escreva("\n                                                                     
 					se(dificuldade == 3 e faccao == 3){
 		//saqueador//
 						se (evento <= 30){
-							escreva ("VOCÊ FOI ATACADO DE SURPRESA POR UM ZUMBI!!! ")
+
+
+							
+							qualquerevento = u.sorteia(1, 3)
+				//escolha caso para fazer as ações//
+								escolha(qualquerevento){
+
+								//zumbi comum\\
+									caso 1:
+										escreva ("VOCÊ ENCONTROU UM ZUMBI!!  \n\n")
+										escreva ("o que você vai fazer?\n\n")
+										escreva ("1- atacar \n")
+										escreva ("2- fugir \n")
+										leia(opcaoacao)
+
+										se(opcaoacao == 1 ){
+										
+											escreva ("você não possui nenuma arma e acaba saindo ferido")
+
+											u.aguarde(2000)
+											energia = energia - 10
+											
+											
+										}//fim do se no escolha
+										senao {
+
+											escreva ("Você foge e consegue escapar")
+
+											u.aguarde(2000)
+										}// fim do senao
+									pare
+								//zumbi corredor\\
+									caso 2:
+										escreva ("VOCÊ ENCONTROU UM ZUMBI CORREDOR VINDO EM SUA DIREÇÃO!!!\n\n")
+										escreva ("o que você vai fazer?\n\n")
+										escreva ("1- atacar \n")
+										escreva ("2- fugir \n")
+										leia(opcaoacao)
+
+										se(opcaoacao == 1 ){
+										
+											escreva ("você não possui nenuma arma e acaba saindo ferido")
+
+											u.aguarde(2000)
+											energia = energia - 10
+											
+											
+										}//fim do se no escolha
+										senao {
+
+											escreva ("Ele te agarra por um momento e te machuca, porém você ainda consegue escapar")
+
+											u.aguarde(2500)
+											energia = energia - 10
+											
+										}// fim do senao
+									pare
+									//horda de zumbis
+									caso 3:
+										escreva ("VOCÊ ENCONTROU UMA HORDA ZUMBIS  VINDO EM SUA DIREÇÃO!!!\n\n")
+										escreva ("o que você vai fazer?\n\n")
+										escreva ("1- atacar \n")
+										escreva ("2- fugir \n")
+										leia(opcaoacao)
+
+										se(opcaoacao == 1 ){
+										
+											escreva ("você não possui nenuma arma e acaba saindo ferido")
+
+											u.aguarde(2000)
+											energia = energia - energia
+											
+											
+										}//fim do se no escolha
+										senao {
+
+											escreva ("Você foge e consegue escapar")
+
+											u.aguarde(1500)
+											energia = energia - 10
+											
+										}// fim do senao
+									pare
+									//horda de zumbis
+								}//fim do escolha
 				
 							energia = energia - 25
 						}//fim do OUTRO se
@@ -805,7 +2734,91 @@ escreva("\n                                                                     
 					se(dificuldade == 4 e faccao == 1 ){
 		//militar//
 						se (evento <= 45){
-							escreva ("VOCÊ FOI ATACADO DE SURPRESA POR UM ZUMBI!!! ")
+
+
+							
+							qualquerevento = u.sorteia(1, 3)
+				//escolha caso para fazer as ações//
+								escolha(qualquerevento){
+
+								//zumbi comum\\
+									caso 1:
+										escreva ("VOCÊ ENCONTROU UM ZUMBI!!  \n\n")
+										escreva ("o que você vai fazer?\n\n")
+										escreva ("1- atacar \n")
+										escreva ("2- fugir \n")
+										leia(opcaoacao)
+
+										se(opcaoacao == 1 ){
+										
+											escreva ("você não possui nenuma arma e acaba saindo ferido")
+
+											u.aguarde(2000)
+											energia = energia - 10
+											
+											
+										}//fim do se no escolha
+										senao {
+
+											escreva ("Você foge e consegue escapar")
+
+											u.aguarde(2000)
+										}// fim do senao
+									pare
+								//zumbi corredor\\
+									caso 2:
+										escreva ("VOCÊ ENCONTROU UM ZUMBI CORREDOR VINDO EM SUA DIREÇÃO!!!\n\n")
+										escreva ("o que você vai fazer?\n\n")
+										escreva ("1- atacar \n")
+										escreva ("2- fugir \n")
+										leia(opcaoacao)
+
+										se(opcaoacao == 1 ){
+										
+											escreva ("você não possui nenuma arma e acaba saindo ferido")
+
+											u.aguarde(2000)
+											energia = energia - 10
+											
+											
+										}//fim do se no escolha
+										senao {
+
+											escreva ("Ele te agarra por um momento e te machuca, porém você ainda consegue escapar")
+
+											u.aguarde(2500)
+											energia = energia - 10
+											
+										}// fim do senao
+									pare
+									//horda de zumbis
+									caso 3:
+										escreva ("VOCÊ ENCONTROU UMA HORDA ZUMBIS  VINDO EM SUA DIREÇÃO!!!\n\n")
+										escreva ("o que você vai fazer?\n\n")
+										escreva ("1- atacar \n")
+										escreva ("2- fugir \n")
+										leia(opcaoacao)
+
+										se(opcaoacao == 1 ){
+										
+											escreva ("você não possui nenuma arma e acaba saindo ferido")
+
+											u.aguarde(2000)
+											energia = energia - energia
+											
+											
+										}//fim do se no escolha
+										senao {
+
+											escreva ("Você foge e consegue escapar")
+
+											u.aguarde(1500)
+											energia = energia - 10
+											
+										}// fim do senao
+									pare
+									//horda de zumbis
+								}//fim do escolha
 				
 							energia = energia - 10
 						}//fim do OUTRO se
@@ -820,7 +2833,91 @@ escreva("\n                                                                     
 					se(dificuldade == 4 e faccao == 2 ){
 		//medico//
 						se (evento <= 45){
-							escreva ("VOCÊ FOI ATACADO DE SURPRESA POR UM ZUMBI!!! ")
+
+
+							
+							qualquerevento = u.sorteia(1, 3)
+				//escolha caso para fazer as ações//
+								escolha(qualquerevento){
+
+								//zumbi comum\\
+									caso 1:
+										escreva ("VOCÊ ENCONTROU UM ZUMBI!!  \n\n")
+										escreva ("o que você vai fazer?\n\n")
+										escreva ("1- atacar \n")
+										escreva ("2- fugir \n")
+										leia(opcaoacao)
+
+										se(opcaoacao == 1 ){
+										
+											escreva ("você não possui nenuma arma e acaba saindo ferido")
+
+											u.aguarde(2000)
+											energia = energia - 10
+											
+											
+										}//fim do se no escolha
+										senao {
+
+											escreva ("Você foge e consegue escapar")
+
+											u.aguarde(2000)
+										}// fim do senao
+									pare
+								//zumbi corredor\\
+									caso 2:
+										escreva ("VOCÊ ENCONTROU UM ZUMBI CORREDOR VINDO EM SUA DIREÇÃO!!!\n\n")
+										escreva ("o que você vai fazer?\n\n")
+										escreva ("1- atacar \n")
+										escreva ("2- fugir \n")
+										leia(opcaoacao)
+
+										se(opcaoacao == 1 ){
+										
+											escreva ("você não possui nenuma arma e acaba saindo ferido")
+
+											u.aguarde(2000)
+											energia = energia - 10
+											
+											
+										}//fim do se no escolha
+										senao {
+
+											escreva ("Ele te agarra por um momento e te machuca, porém você ainda consegue escapar")
+
+											u.aguarde(2500)
+											energia = energia - 10
+											
+										}// fim do senao
+									pare
+									//horda de zumbis
+									caso 3:
+										escreva ("VOCÊ ENCONTROU UMA HORDA ZUMBIS  VINDO EM SUA DIREÇÃO!!!\n\n")
+										escreva ("o que você vai fazer?\n\n")
+										escreva ("1- atacar \n")
+										escreva ("2- fugir \n")
+										leia(opcaoacao)
+
+										se(opcaoacao == 1 ){
+										
+											escreva ("você não possui nenuma arma e acaba saindo ferido")
+
+											u.aguarde(2000)
+											energia = energia - energia
+											
+											
+										}//fim do se no escolha
+										senao {
+
+											escreva ("Você foge e consegue escapar")
+
+											u.aguarde(1500)
+											energia = energia - 10
+											
+										}// fim do senao
+									pare
+									//horda de zumbis
+								}//fim do escolha
 				
 							energia = energia - 20
 						}//fim do OUTRO se
@@ -835,7 +2932,7 @@ escreva("\n                                                                     
 				
 				pare
 
-
+/////////////////-------------------------ESCOLHA DAS OPÇÕES-----------------------\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 				
 				caso 4:
 					escreva ("O que deseja  criar?" )
@@ -843,14 +2940,14 @@ escreva("\n                                                                     
 					u.aguarde(1500)
 				pare
 
-
+/////////////////-------------------------ESCOLHA DAS OPÇÕES-----------------------\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 				
 				caso 5:
 					escreva ("Você tem essas coisas no seu inventário: ")
 				pare
 
-
+/////////////////-------------------------ESCOLHA DAS OPÇÕES-----------------------\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 				
 				caso contrario:
 					escreva ("escolha uma opção válida. ")
@@ -3372,7 +5469,7 @@ escreva("\n                                                                     
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 576; 
+ * @POSICAO-CURSOR = 658; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
